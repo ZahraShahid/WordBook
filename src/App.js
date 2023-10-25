@@ -34,20 +34,17 @@ function App () {
         height: "100vh",
         backgroundColor: "#D4AC0D", // Color de fondo blanco por defecto
         color: "black", // Color de texto negro por defecto
-        transition: "all 0.5s linear",
       } }>
       <Container
         maxWidth="md"
         style={ { display: "flex", flexDirection: "column", height: "100vh" } }
       >
         <Header
-          category={ category }
-          setCategory={ setCategory }
           word={ word }
           setWord={ setWord }
         />
         { meanings &&
-          <Definitions word={ word } category={ category } meanings={ meanings } />
+          <Definitions word={ word } meanings={ meanings } />
         }
       </Container>
     </div>

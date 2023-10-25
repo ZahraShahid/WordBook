@@ -1,43 +1,40 @@
+/* Header.css */
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
-    height: 40vh;
-    width: 100%;
-  }
-  
-  .title {
-    font-size: 8vw;
-    text-transform: uppercase;
-    font-family: "Montserrat", sans-serif;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  height: 40vh;
+  width: 100%;
+}
 
-  .inputs {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  .search {
-    width: 43%;
-  }
-  
-  .select {
-    width: 43%;
-  }
+.title {
+  font-size: 8vw;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+}
 
-  @media (max-width: 900px) {
-    .header {
-      justify-content: space-evenly;
-      height: 25vh;
-      padding-bottom: 40px;
-    }
-    .title {
-      font-size: 8vw;
-      height: 20vh;
-      padding-top: 50px;
-    }
-  }
+.inputs {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
 
-  
+.search {
+  width: 43%;
+}
+
+.select {
+  width: 43%;
+}
+
+/* Agrega una clase para el tema oscuro */
+.darkTheme .searchInput {
+  color: #fff;
+  /* Cambia el color del texto a blanco en modo oscuro */
+}
+
+/* Cambia el color del borde a blanco en modo oscuro */
+.darkTheme .MuiOutlinedInput-notchedOutline {
+  border-color: #fff;
+}

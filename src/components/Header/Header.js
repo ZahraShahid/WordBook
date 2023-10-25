@@ -6,56 +6,54 @@ import MenuItem from "@mui/material/MenuItem";
 
 import categories from "../../data/category";
 
+const Header = ({ category, setCategory, word, setWord }) => {
+  const lightTheme = createTheme({
+    palette: {
+      primary: {
+        main: "#000", // Color del texto en el tema claro
+      },
+      type: "light", // Usar siempre el tema claro
+    },
+  });
 
-const Header = ({category, setCategory, word, setWord, LightTheme}) => {
-    const darkTheme = createTheme({
-        palette: {
-          primary:{
-            main: LightTheme ? "#000" : "#fff",
-            color: LightTheme ? "#000" : "#fff"
-          },
-          type: LightTheme ? "light" : "dark",
-        },
-      });
+  // Maneja el cambio de idioma y establece la palabra en vacío.
+  const handleChange = (language) => {
+    setCategory(language);
+    setWord("");
+  }
 
-      //handles when the language is changed sets word to none.
-      const handlechange=(language) =>{
-        setCategory(language);
-        setWord("");
-      }
-
-    return (
-      <div className="header">
-        <span className="title">{word ? word : "Word Book"}</span>
-        <div className="inputs">
-        <ThemeProvider theme={darkTheme}>
-           <TextField 
-           id="standard-basic" 
-           variant="standard"
-           value={word}
-           onChange={(e)=>setWord(e.target.value)}
-           className="search"
-           label="Search a Word"
-            />
-           <TextField
-          id="standard-select-currency"
-          select
-          label="Language"
-          value={category}
-          onChange={(e)=> handlechange(e.target.value)}
-          variant="standard"
-          className="select"
-        >
-            {categories.map((option)=> (
-                <MenuItem key={option.label} value={option.label}>
-                {option.value}
+  return (
+    <div className="header">
+      <span className="title">{ word ? word : "Word Book" }</span>
+      <div className="inputs">
+        <ThemeProvider theme={ lightTheme }>
+          <TextField
+            id="standard-basic"
+            variant="standard"
+            value={ word }
+            onChange={ (e) => setWord(e.target.value) }
+            className="search"
+            label="Search a Word"
+          />
+          <TextField
+            id="standard-select-currency"
+            select
+            label="Language"
+            value={ category }
+            onChange={ (e) => handleChange(e.target.value) }
+            variant="standard"
+            className="select"
+          >
+            { categories.map((option) => (
+              <MenuItem key={ option.label } value={ option.label }>
+                { option.value }
               </MenuItem>
-            ))}
-         </TextField>
+            )) }
+          </TextField>
         </ThemeProvider>
-        </div>
       </div>
-    );
-  };
-  
-  export default Header;
+    </div>
+  );
+};
+
+export default Header;

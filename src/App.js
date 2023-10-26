@@ -32,7 +32,7 @@ function App () {
     <div className="App"
       style={ {
         height: "100vh",
-        backgroundColor: "#D4AC0D", // Color de fondo blanco por defecto
+        backgroundColor: "#28B463", // Color de fondo blanco por defecto
         color: "black", // Color de texto negro por defecto
       } }>
       <Container
